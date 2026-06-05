@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { User, Users, Briefcase, Lock, ArrowLeft, ArrowRight, Building, X, Send, Eye, EyeOff } from 'lucide-react';
+import { User, Users, Briefcase, Lock, ArrowLeft, ArrowRight, Building, X, Send, Eye, EyeOff, GraduationCap } from 'lucide-react';
 import './Portal.css';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -8,6 +8,7 @@ const roles = [
   { id: 'student', title: 'Student', icon: <User size={24} />, desc: 'Access your coursework, grades, and campus resources.' },
   { id: 'parent', title: 'Parent', icon: <Users size={24} />, desc: 'Track academic progress, fee payments, and announcements.' },
   { id: 'staff', title: 'Staff', icon: <Briefcase size={24} />, desc: 'Manage classes, student records, and administrative tools.' },
+  { id: 'alumni', title: 'Alumni', icon: <GraduationCap size={24} />, desc: 'Connect with fellow graduates and access transcripts.' },
 ];
 
 export default function Portal() {
@@ -53,6 +54,15 @@ export default function Portal() {
           icon: <Briefcase size={32} />, 
           label: 'Employee ID', 
           placeholder: 'e.g. EMP-1042' 
+        };
+      case 'alumni':
+        return { 
+          title: 'Alumni Portal', 
+          subtitle: 'Connect with fellow graduates, access transcripts, and view alumni events', 
+          icon: <GraduationCap size={32} />, 
+          label: 'Registered Email ID', 
+          placeholder: 'e.g. alumni@example.com',
+          type: 'email'
         };
       default:
         return null;
