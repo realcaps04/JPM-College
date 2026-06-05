@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, Mail } from 'lucide-react';
+import RoleModal from '../RoleModal/RoleModal';
 import './Navbar.css';
 
 const navLinks = [
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [visible, setVisible]     = useState(true);   // is navbar shown
   const [elevated, setElevated]   = useState(false);  // has shadow (scrolled)
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [roleModalOpen, setRoleModalOpen] = useState(false);
 
   const lastScrollY = useRef(0);
 
@@ -60,32 +62,33 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Info Bar — always pinned, never hides */}
-      <div className="topbar">
-        <div className="container">
-          <div className="topbar__inner">
-            <div className="topbar__left">
-              <span className="topbar__item"><Phone size={12} /> +91 98765 43210</span>
-              <span className="topbar__sep" />
-              <span className="topbar__item"><Mail size={12} /> admissions@jpmcollege.edu.in</span>
-            </div>
-            <div className="topbar__right">
-              <span className="topbar__badge">NAAC Accredited B++ · CGPA 2.85</span>
-              <span className="topbar__sep" />
-              <span className="topbar__badge">Admissions Open 2026–27</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Navbar */}
-      <motion.nav
-        className={`navbar ${elevated ? 'navbar--elevated' : ''}`}
+      <motion.header
+        className={`header-wrapper ${elevated ? 'header-wrapper--elevated' : ''}`}
         animate={{ y: visible ? 0 : '-100%' }}
         transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
       >
-        <div className="container">
-          <div className="navbar__inner">
+        {/* Top Info Bar */}
+        <div className="topbar">
+          <div className="container">
+            <div className="topbar__inner">
+              <div className="topbar__left">
+                <span className="topbar__item"><Phone size={12} /> +91 9562034555, +91 7025815009</span>
+                <span className="topbar__sep" />
+                <span className="topbar__item"><Mail size={12} /> jpm@jpmcollege.ac.in</span>
+              </div>
+              <div className="topbar__right">
+                <span className="topbar__badge">NAAC Accredited B++ · CGPA 2.85</span>
+                <span className="topbar__sep" />
+                <span className="topbar__badge">Admissions Open 2026–27</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Navbar */}
+        <nav className="navbar">
+          <div className="container">
+            <div className="navbar__inner">
 
             {/* Official Logo */}
             <a className="navbar__logo-full" href="#hero" onClick={() => scrollTo('#hero')}>
@@ -115,7 +118,7 @@ export default function Navbar() {
               <button className="navbar__cta" onClick={() => scrollTo('#admissions')}>
                 Apply Now
               </button>
-              <button className="navbar__join" onClick={() => alert('Register / Login coming soon')}>
+              <button className="navbar__join" onClick={() => setRoleModalOpen(true)}>
                 Join Us
               </button>
             </div>
@@ -131,7 +134,8 @@ export default function Navbar() {
 
           </div>
         </div>
-      </motion.nav>
+      </nav>
+    </motion.header>
 
       {/* Mobile Slide-down Menu */}
       <AnimatePresence>
@@ -156,13 +160,16 @@ export default function Navbar() {
               <button className="mobile-menu__cta" onClick={() => scrollTo('#admissions')}>
                 Apply Now
               </button>
-              <button className="mobile-menu__join" onClick={() => alert('Register / Login coming soon')}>
+              <button className="mobile-menu__join" onClick={() => { setMobileOpen(false); setRoleModalOpen(true); }}>
                 Join Us
               </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Role Selection Modal */}
+      <RoleModal isOpen={roleModalOpen} onClose={() => setRoleModalOpen(false)} />
     </>
   );
 }

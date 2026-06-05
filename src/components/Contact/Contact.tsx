@@ -1,13 +1,15 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { MapPin, Phone, Mail, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, CheckCircle, ChevronDown } from 'lucide-react';
+import { programs } from '../../data/siteData';
 import './Contact.css';
 
 export default function Contact() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
   const [form, setForm] = useState({ name: '', email: '', phone: '', program: '', message: '' });
   const [sent, setSent] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -40,8 +42,8 @@ export default function Contact() {
               <div className="contact__info-items">
                 {[
                   { icon: <MapPin size={18} />, label: 'Address', value: 'JPM Campus, Labbakkada, Kanchiyar, Kerala – 685 511' },
-                  { icon: <Phone size={18} />, label: 'Phone', value: '+91 98765 43210' },
-                  { icon: <Mail size={18} />, label: 'Email', value: 'admissions@jpmcollege.edu.in' },
+                  { icon: <Phone size={18} />, label: 'Phone', value: '+91 9562034555, +91 7025815009' },
+                  { icon: <Mail size={18} />, label: 'Email', value: 'jpm@jpmcollege.ac.in' },
                 ].map((item, i) => (
                   <div className="contact__info-item" key={i}>
                     <div className="contact__info-icon">{item.icon}</div>
@@ -81,15 +83,29 @@ export default function Contact() {
                 </div>
                 <div className="contact__field">
                   <label className="contact__label">Program of Interest</label>
-                  <select className="contact__input" name="program" value={form.program} onChange={onChange}>
-                    <option value="">Select program</option>
-                    <option>B.Sc. Chemistry</option>
-                    <option>B.Sc. Computer Science</option>
-                    <option>B.Sc. Mathematics</option>
-                    <option>B.A. English Literature</option>
-                    <option>B.Com. (General)</option>
-                    <option>B.Sc. Botany</option>
-                  </select>
+                  <div className="contact__custom-select">
+                    <div 
+                      className={`contact__input contact__select-trigger ${!form.program ? 'text-placeholder' : ''}`}
+                      onClick={() => setDropdownOpen(!dropdownOpen)}
+                    >
+                      {form.program || 'Select program'}
+                      <ChevronDown size={16} />
+                    </div>
+                    {dropdownOpen && (
+                      <div className="contact__select-options">
+                        <div className="contact__select-option" onClick={() => { setForm(f => ({...f, program: ''})); setDropdownOpen(false); }}>Select program</div>
+                        {programs.map(p => (
+                          <div 
+                            key={p.id} 
+                            className="contact__select-option"
+                            onClick={() => { setForm(f => ({...f, program: p.title})); setDropdownOpen(false); }}
+                          >
+                            {p.title}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
               <div className="contact__field">

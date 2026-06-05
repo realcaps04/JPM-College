@@ -1,10 +1,10 @@
 .footer__main{background:#001f3d;padding:64px 0 48px}
-.footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:48px}
+.footer__grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:48px}
 
-.footer__logo{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.footer__logo-icon{width:44px;height:44px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Inter', sans-serif;font-size:14px;font-weight:800;color:var(--white);flex-shrink:0}
-.footer__logo-name{$1800;color:var(--white);line-height:1.2}
-.footer__logo-sub{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.3px}
+.footer__logo{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.footer__emblem-img{height:54px;width:auto;object-fit:contain;flex-shrink:0}
+.footer__logo-name{font-weight:800;color:var(--white);line-height:1.2;font-size:18px;white-space:nowrap}
+.footer__logo-sub{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.3px;margin-top:4px;white-space:nowrap}
 .footer__desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:20px}
 
 .footer__social{display:flex;gap:8px}

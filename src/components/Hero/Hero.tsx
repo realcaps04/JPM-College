@@ -82,7 +82,7 @@ export default function Hero() {
             <div className="hero__img-card">
               <div className="hero__img-header">
                 <MapPin size={14} className="hero__img-header-icon" />
-                <span className="hero__img-header-label">Our Campus · Labbakkada, Kanchiyar</span>
+                <span className="hero__img-header-label">Our Campus · Labbakkada, Kanchiyar, Idukki, Kerala, India</span>
               </div>
               <img
                 src="/images/real_campus.jpg"

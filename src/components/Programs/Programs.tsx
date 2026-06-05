@@ -1,16 +1,43 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Clock, Users, ArrowRight } from 'lucide-react';
+import { 
+  Clock, Users, ArrowRight, BookOpen, Handshake, TrendingUp, Truck, FileVideo, 
+  Building, Monitor, Heart, Plane, PieChart, Terminal, Library, UserCheck, 
+  Globe, FileText, Calculator, ClipboardList, ShieldAlert, Leaf, FileSignature, Database 
+} from 'lucide-react';
 import { programs } from '../../data/siteData';
 import './Programs.css';
 
-const filters = ['All', 'Sciences', 'Computer Science', 'Mathematics', 'Arts', 'Commerce'];
+const filters = ['All', 'Undergraduate (UG)', 'Postgraduate (PG)', 'Add-on Courses'];
+
+const iconMap: Record<number, React.ReactNode> = {
+  1: <Handshake size={24} strokeWidth={1.5} />,
+  2: <TrendingUp size={24} strokeWidth={1.5} />,
+  3: <Truck size={24} strokeWidth={1.5} />,
+  4: <FileVideo size={24} strokeWidth={1.5} />,
+  5: <Building size={24} strokeWidth={1.5} />,
+  6: <Monitor size={24} strokeWidth={1.5} />,
+  7: <Heart size={24} strokeWidth={1.5} />,
+  8: <Plane size={24} strokeWidth={1.5} />,
+  9: <PieChart size={24} strokeWidth={1.5} />,
+  10: <Terminal size={24} strokeWidth={1.5} />,
+  11: <Library size={24} strokeWidth={1.5} />,
+  12: <UserCheck size={24} strokeWidth={1.5} />,
+  13: <Globe size={24} strokeWidth={1.5} />,
+  14: <FileText size={24} strokeWidth={1.5} />,
+  15: <Calculator size={24} strokeWidth={1.5} />,
+  16: <ClipboardList size={24} strokeWidth={1.5} />,
+  17: <ShieldAlert size={24} strokeWidth={1.5} />,
+  18: <Leaf size={24} strokeWidth={1.5} />,
+  19: <FileSignature size={24} strokeWidth={1.5} />,
+  20: <Database size={24} strokeWidth={1.5} />
+};
 
 export default function Programs() {
   const [active, setActive] = useState('All');
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
-  const filtered = active === 'All' ? programs : programs.filter(p => p.department === active);
+  const filtered = active === 'All' ? programs : programs.filter(p => p.level === active);
 
   return (
     <section className="programs section section-gray" id="programs" ref={ref}>
@@ -33,8 +60,8 @@ export default function Programs() {
           {filtered.map((p, i) => (
             <motion.div key={p.id} className="programs__card card" initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: i * 0.08 }}>
               <div className="programs__card-top">
-                <div className="programs__icon">{p.icon}</div>
-                <span className="badge badge-blue">{p.department}</span>
+                <div className="programs__icon">{iconMap[p.id] || <BookOpen size={24} />}</div>
+                <span className="badge badge-blue">{p.level}</span>
               </div>
               <h3 className="programs__title">{p.title}</h3>
               <p className="programs__desc">{p.description}</p>

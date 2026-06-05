@@ -65,8 +65,8 @@ export default function Footer() {
               <h4 className="footer__col-title">Contact</h4>
               <ul className="footer__contact">
                 <li className="footer__contact-item"><MapPin size={13} /><span>JPM Campus, Labbakkada,<br />Kanchiyar, Kerala – 685 511</span></li>
-                <li className="footer__contact-item"><Phone size={13} /><span>+91 98765 43210</span></li>
-                <li className="footer__contact-item"><Mail size={13} /><span>admissions@jpmcollege.edu.in</span></li>
+                <li className="footer__contact-item"><Phone size={13} /><span>+91 9562034555, +91 7025815009</span></li>
+                <li className="footer__contact-item"><Mail size={13} /><span>jpm@jpmcollege.ac.in</span></li>
               </ul>
               <h4 className="footer__col-title" style={{ marginTop: '20px' }}>Newsletter</h4>
               <div className="footer__newsletter">

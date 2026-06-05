@@ -1,7 +1,17 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Briefcase, Monitor, BookOpen, Building, Heart, Plane } from 'lucide-react';
 import { departments } from '../../data/siteData';
 import './Departments.css';
+
+const iconMap: Record<number, React.ReactNode> = {
+  1: <Briefcase size={28} strokeWidth={1.5} />,
+  2: <Monitor size={28} strokeWidth={1.5} />,
+  3: <BookOpen size={28} strokeWidth={1.5} />,
+  4: <Building size={28} strokeWidth={1.5} />,
+  5: <Heart size={28} strokeWidth={1.5} />,
+  6: <Plane size={28} strokeWidth={1.5} />,
+};
 
 export default function Departments() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
@@ -16,10 +26,11 @@ export default function Departments() {
         <div className="depts__grid">
           {departments.map((d, i) => (
             <motion.div key={d.id} className="depts__card" initial={{ opacity: 0, scale: .96 }} animate={inView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.4, delay: i * 0.06 }}>
-              <div className="depts__icon">{d.icon}</div>
+              <div className="depts__icon">{iconMap[d.id] || <Building size={28} />}</div>
               <h3 className="depts__name">{d.name}</h3>
-              <div className="depts__info">{d.programs} Programs · {d.faculty} Faculty</div>
-              <div className="depts__est">Est. {d.established}</div>
+              <div className="depts__info" style={{ marginTop: '12px', fontSize: '13px', lineHeight: '1.6', color: 'var(--text-light)' }}>
+                <strong>Focus Area:</strong><br/>{d.focusArea}
+              </div>
               <div className="depts__bar" />
             </motion.div>
           ))}
