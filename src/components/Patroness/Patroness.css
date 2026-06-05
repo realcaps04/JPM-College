@@ -1,0 +1,118 @@
+.patroness {
+  background-color: var(--bg-alt, #f8fafc);
+  padding: 80px 0;
+}
+
+.patroness__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+@media (min-width: 901px) {
+  .patroness__grid--reverse .patroness__img-section {
+    order: -1;
+  }
+}
+
+.patroness__img-container {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+/* Decorative backdrop frame */
+.patroness__img-container::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: 20px;
+  bottom: 20px;
+  border: 2px solid var(--primary, #004b80);
+  border-radius: var(--radius-lg);
+  z-index: 0;
+  opacity: 0.15;
+}
+
+/* Decorative backdrop solid */
+.patroness__img-container::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  bottom: -20px;
+  left: 20px;
+  background-color: var(--primary, #004b80);
+  border-radius: var(--radius-lg);
+  z-index: 0;
+  opacity: 0.08;
+}
+
+.patroness__img-wrap {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12);
+  border: 8px solid #ffffff;
+}
+
+.patroness__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.patroness__img-container:hover .patroness__img {
+  transform: scale(1.08);
+}
+
+.patroness__para {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.patroness__quote-box {
+  margin-top: 36px;
+  padding: 24px 32px;
+  background-color: #ffffff;
+  border-left: 4px solid var(--primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.patroness__quote-text {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.patroness__quote-author {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+@media (max-width: 900px) {
+  .patroness__grid {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+  
+  .patroness__img-container {
+    max-width: 320px;
+  }
+}

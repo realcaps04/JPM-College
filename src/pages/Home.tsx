@@ -1,7 +1,6 @@
 import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
 import Stats from '../components/Stats/Stats';
-import About from '../components/About/About';
 import Programs from '../components/Programs/Programs';
 import Admissions from '../components/Admissions/Admissions';
 import Faculty from '../components/Faculty/Faculty';
@@ -19,7 +18,6 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
-        <About />
         <Programs />
         <Admissions />
         <Faculty />

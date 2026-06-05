@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, AlertCircle } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
-  { label: 'About',       href: '#about' },
+  { label: 'About',       href: '/about' },
   { label: 'Programs',    href: '#programs' },
   { label: 'Admissions',  href: '#admissions' },
   { label: 'Faculty',     href: '#faculty' },
@@ -55,9 +56,21 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollTo = (href: string) => {
     setMobileOpen(false);
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+    if (href.startsWith('/')) {
+      navigate(href);
+      window.scrollTo(0, 0);
+    } else if (href.startsWith('#')) {
+      if (location.pathname !== '/') {
+        navigate('/' + href);
+      } else {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
   };
 
   return (
@@ -91,7 +104,7 @@ export default function Navbar() {
             <div className="navbar__inner">
 
             {/* Official Logo */}
-            <a className="navbar__logo-full" href="#hero" onClick={() => scrollTo('#hero')}>
+            <a className="navbar__logo-full" href="/" onClick={(e) => { e.preventDefault(); scrollTo('#hero'); }}>
               <img
                 src="/images/jpm_logo.png"
                 alt="JPM Arts & Science College"

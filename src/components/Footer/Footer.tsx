@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube, ArrowRight 
 import './Footer.css';
 
 const quickLinks = [
-  { label: 'About the College', href: '#about' },
+  { label: 'About the College', href: '/about' },
   { label: 'Academic Programs', href: '#programs' },
   { label: 'Admissions', href: '#admissions' },
   { label: 'Faculty', href: '#faculty' },
