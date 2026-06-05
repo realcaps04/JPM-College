@@ -1,0 +1,123 @@
+.hero{padding:56px 0 64px;border-bottom:1px solid var(--border)}
+
+.hero__grid{
+  display:grid;grid-template-columns:1fr 1.05fr;
+  gap:64px;align-items:center
+}
+
+/* Left */
+.hero__tag{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 14px;background:var(--blue-faint);
+  border:1px solid rgba(0,75,128,.15);border-radius:4px;
+  font-size:12px;font-weight:700;color:var(--blue);
+  letter-spacing:.5px;text-transform:uppercase;
+  margin-bottom:24px
+}
+.hero__tag svg{color:var(--gold)}
+
+.hero__title{
+  font-family:'Gropled', sans-serif;
+  font-size:clamp(36px,4.5vw,58px);
+  font-weight:bold;color:var(--text-primary);
+  line-height:1.1;margin-bottom:20px;
+  -webkit-text-stroke: 1.5px var(--text-primary);
+}
+.hero__title-accent{
+  color:var(--blue); 
+  font-family:'Gropled', sans-serif;
+  -webkit-text-stroke: 1.5px var(--blue);
+}
+
+.hero__divider{
+  width:56px;height:4px;
+  background:linear-gradient(90deg,var(--blue),var(--gold));
+  border-radius:2px;margin-bottom:24px
+}
+
+.hero__subtitle{
+  font-size:16px;color:var(--text-secondary);
+  line-height:1.8;margin-bottom:32px;max-width:480px
+}
+
+/* Accreditation badges */
+.hero__badges{display:flex;gap:0;margin-bottom:36px;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+.hero__badge{
+  flex:1;display:flex;align-items:center;gap:10px;
+  padding:14px 16px;background:var(--white);
+  border-right:1px solid var(--border);
+}
+.hero__badge:last-child{border-right:none}
+.hero__badge-icon{color:var(--blue);flex-shrink:0}
+.hero__badge-label{font-size:11px;color:var(--text-muted);font-weight:500;line-height:1}
+.hero__badge-value{font-size:13px;font-weight:700;color:var(--text-primary);line-height:1.4}
+
+.hero__actions{display:flex;gap:14px;flex-wrap:wrap}
+
+/* Right — Image Card */
+.hero__image-col{position:relative}
+
+.hero__img-card{
+  border:1px solid var(--border);border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow-lg)
+}
+.hero__img-header{
+  background:var(--gray-50);border-bottom:1px solid var(--border);
+  padding:12px 16px;display:flex;align-items:center;gap:6px;
+  justify-content:center;
+}
+.hero__img-header-icon{color:var(--gold-light)}
+.hero__img-header-label{
+  font-size:12px;color:var(--text-muted);font-weight:600;letter-spacing:.3px
+}
+
+.hero__campus-img{width:100%;height:320px;object-fit:cover;display:block}
+
+.hero__img-footer{
+  background:var(--blue);padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-around;gap:12px
+}
+.hero__img-stat{text-align:center}
+.hero__img-stat-num{display:block;font-family:'Inter', sans-serif;font-size:20px;font-weight:800;color:var(--gold-light)}
+.hero__img-stat-label{font-size:11px;color:rgba(255,255,255,.7);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.hero__img-sep{width:1px;height:32px;background:rgba(255,255,255,.2)}
+
+/* Floating announcement */
+.hero__announce{
+  position:absolute;top:180px;right:-24px;
+  display:flex;align-items:center;gap:12px;
+  background:var(--white);border:1px solid var(--border);
+  border-left:4px solid var(--gold);border-radius:8px;
+  padding:14px 18px;box-shadow:var(--shadow-lg);
+  min-width:240px;z-index:2;
+}
+.hero__announce-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--gold);flex-shrink:0;
+  animation:blink 1.5s infinite
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.hero__announce-title{font-size:14px;font-weight:700;color:var(--text-primary)}
+.hero__announce-sub{font-size:12px;color:var(--text-muted)}
+.hero__announce-btn{
+  margin-left:auto;padding:7px 14px;
+  background:var(--blue);color:var(--white);
+  border-radius:4px;font-size:13px;font-weight:700;
+  cursor:pointer;transition:var(--transition);white-space:nowrap
+}
+.hero__announce-btn:hover{background:var(--blue-dark)}
+
+@media(max-width:1024px){
+  .hero__grid{grid-template-columns:1fr;gap:40px}
+  .hero__announce{right:0}
+  .hero__campus-img{height:260px}
+}
+@media(max-width:600px){
+  .hero__badges{flex-direction:column}
+  .hero__badge{border-right:none;border-bottom:1px solid var(--border)}
+  .hero__announce{display:none}
+  .hero__campus-img{height:220px}
+}
+
+
+

@@ -1,0 +1,24 @@
+.faculty__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.faculty__card{overflow:hidden;border-top:3px solid var(--blue)}
+.faculty__img-wrap{position:relative;height:260px;overflow:hidden}
+.faculty__img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s}
+.faculty__card:hover .faculty__img{transform:scale(1.04)}
+.faculty__exp{
+  position:absolute;bottom:12px;right:12px;
+  background:var(--blue);color:var(--white);
+  font-size:11px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:.5px
+}
+.faculty__body{padding:20px}
+.faculty__name{$1800;color:var(--text-primary);margin-bottom:4px}
+.faculty__designation{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:2px}
+.faculty__dept{font-size:12px;color:var(--text-muted);margin-bottom:12px}
+.faculty__divider{height:1px;background:var(--border);margin-bottom:12px}
+.faculty__spec{font-size:13px;color:var(--text-secondary);margin-bottom:4px}
+.faculty__spec-label{font-weight:700;color:var(--text-primary)}
+.faculty__qual{font-size:12px;color:var(--text-muted);font-weight:600}
+
+@media(max-width:1024px){.faculty__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.faculty__grid{grid-template-columns:1fr}}
+
+
+

@@ -1,0 +1,46 @@
+.footer__main{background:#001f3d;padding:64px 0 48px}
+.footer__grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.3fr;gap:48px}
+
+.footer__logo{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer__logo-icon{width:44px;height:44px;background:var(--gold);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Inter', sans-serif;font-size:14px;font-weight:800;color:var(--white);flex-shrink:0}
+.footer__logo-name{$1800;color:var(--white);line-height:1.2}
+.footer__logo-sub{font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.3px}
+.footer__desc{font-size:14px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:20px}
+
+.footer__social{display:flex;gap:8px}
+.footer__social-btn{width:34px;height:34px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:var(--transition)}
+.footer__social-btn:hover{background:var(--blue);border-color:var(--blue);color:var(--white)}
+
+.footer__col-title{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:18px}
+.footer__links{display:flex;flex-direction:column;gap:8px}
+.footer__link{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.55);transition:color .2s}
+.footer__link:hover{color:var(--white)}
+.footer__link svg{color:var(--gold);flex-shrink:0}
+
+.footer__contact{display:flex;flex-direction:column;gap:14px}
+.footer__contact-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.6);line-height:1.5}
+.footer__contact-item svg{color:var(--gold-light);flex-shrink:0;margin-top:2px}
+
+.footer__newsletter{display:flex;margin-top:10px}
+.footer__newsletter-input{flex:1;padding:9px 12px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-right:none;border-radius:4px 0 0 4px;font-size:13px;color:var(--white);outline:none}
+.footer__newsletter-input::placeholder{color:rgba(255,255,255,.3)}
+.footer__newsletter-btn{padding:9px 14px;background:var(--gold);border-radius:0 4px 4px 0;display:flex;align-items:center;color:var(--white);cursor:pointer;transition:opacity .2s}
+.footer__newsletter-btn:hover{opacity:.85}
+
+/* Accreditation Bar */
+.footer__accred{background:var(--blue);padding:14px 0;border-top:2px solid rgba(255,255,255,.1)}
+.footer__accred-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;font-size:13px;font-weight:600;color:rgba(255,255,255,.85)}
+.footer__accred-sep{width:1px;height:14px;background:rgba(255,255,255,.25)}
+
+/* Bottom */
+.footer__bottom{background:#00111f;padding:18px 0}
+.footer__bottom-inner{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:8px}
+.footer__bottom-links{display:flex;align-items:center;gap:10px}
+.footer__bottom-links a{color:rgba(255,255,255,.4);transition:color .2s}
+.footer__bottom-links a:hover{color:var(--gold-light)}
+
+@media(max-width:1024px){.footer__grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.footer__grid{grid-template-columns:1fr;gap:32px};.footer__accred-sep{display:none}}
+
+
+

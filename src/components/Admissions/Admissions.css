@@ -1,0 +1,39 @@
+.admissions{background:var(--blue)}
+.admissions__steps{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:0;margin-bottom:48px;
+  border:1px solid rgba(255,255,255,.15);border-radius:var(--radius-lg);overflow:hidden
+}
+.admissions__step{
+  padding:28px 20px;background:rgba(255,255,255,.06);
+  border-right:1px solid rgba(255,255,255,.12);
+  text-align:center;transition:var(--transition)
+}
+.admissions__step:last-child{border-right:none}
+.admissions__step:hover{background:rgba(255,255,255,.1)}
+.admissions__step-num{
+  font-family:'Inter', sans-serif;font-size:32px;font-weight:800;
+  color:var(--gold-light);line-height:1;margin-bottom:8px;opacity:.6
+}
+.admissions__step-icon{font-size:28px;margin-bottom:12px}
+.admissions__step-title{
+  $1800;
+  color:var(--white);margin-bottom:10px
+}
+.admissions__step-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65}
+
+.admissions__cta-box{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);
+  border-left:4px solid var(--gold);border-radius:var(--radius-md);
+  padding:28px 36px;flex-wrap:wrap
+}
+.admissions__cta-text h3{$1800;color:var(--white);margin-bottom:4px}
+.admissions__cta-text p{font-size:14px;color:rgba(255,255,255,.65)}
+.admissions__cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+
+@media(max-width:1024px){.admissions__steps{grid-template-columns:repeat(3,1fr)}.admissions__step:nth-child(3){border-right:none}}
+@media(max-width:640px){.admissions__steps{grid-template-columns:1fr}.admissions__step{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}.admissions__cta-box{flex-direction:column;text-align:center;padding:24px}}
+
+
+
