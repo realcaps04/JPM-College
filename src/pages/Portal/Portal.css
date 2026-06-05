@@ -226,14 +226,34 @@
   align-items: center;
 }
 
-.portal__input-icon svg {
+.portal__input-icon-left {
   position: absolute;
   left: 16px;
   color: var(--gray-400);
+  pointer-events: none;
+}
+
+.portal__input-icon-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.portal__input-icon-toggle:hover {
+  color: var(--blue);
 }
 
 .portal__input-icon input {
   padding-left: 44px !important;
+  padding-right: 44px !important;
 }
 
 .portal__options {

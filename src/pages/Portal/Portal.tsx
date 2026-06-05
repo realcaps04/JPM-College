@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { User, Users, Briefcase, Lock, ArrowLeft, ArrowRight, Building, X, Send } from 'lucide-react';
+import { User, Users, Briefcase, Lock, ArrowLeft, ArrowRight, Building, X, Send, Eye, EyeOff } from 'lucide-react';
 import './Portal.css';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -19,6 +19,7 @@ export default function Portal() {
   const [issueType, setIssueType] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [supportContactMethod, setSupportContactMethod] = useState<'email' | 'phone'>('email');
+  const [showPassword, setShowPassword] = useState(false);
 
   const issueOptions = [
     { value: 'access', label: 'Account Access / Login Issue' },
@@ -122,8 +123,20 @@ export default function Portal() {
                 <div className="portal__field">
                   <label>Password</label>
                   <div className="portal__input-icon">
-                    <Lock size={16} />
-                    <input type="password" placeholder="Enter your password" required />
+                    <Lock size={16} className="portal__input-icon-left" />
+                    <input 
+                      type={showPassword ? "text" : "password"} 
+                      placeholder="Enter your password" 
+                      required 
+                    />
+                    <button 
+                      type="button" 
+                      className="portal__input-icon-toggle" 
+                      onClick={() => setShowPassword(!showPassword)}
+                      aria-label={showPassword ? "Hide password" : "Show password"}
+                    >
+                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
                   </div>
                 </div>
                 
