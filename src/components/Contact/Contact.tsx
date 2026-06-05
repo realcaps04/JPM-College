@@ -36,7 +36,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.5 }}>
             <div className="contact__info-box">
               <div className="contact__info-header">
-                <h3>JPM Arts &amp; Science College</h3>
+                <h3><span className="font-grople">JPM Arts &amp; Science College</span></h3>
                 <p>Reach out to us for admissions, programmes or any other information.</p>
               </div>
               <div className="contact__info-items">

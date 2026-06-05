@@ -24,8 +24,8 @@ export default function Hero() {
             </div>
 
             <h1 className="hero__title">
-              JPM Arts &amp;<br />
-              <span className="hero__title-accent">Science College</span>
+              <span className="font-grople">JPM Arts &amp;<br />
+              <span className="hero__title-accent">Science College</span></span>
             </h1>
 
             <div className="hero__divider" />

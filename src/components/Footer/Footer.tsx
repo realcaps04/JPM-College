@@ -24,7 +24,7 @@ export default function Footer() {
                   <img src="/images/emblem.png" alt="JPM Emblem" className="footer__emblem-img" />
                 </div>
                 <div>
-                  <div className="footer__logo-name">JPM Arts &amp; Science College</div>
+                  <div className="footer__logo-name font-grople">JPM Arts &amp; Science College</div>
                   <div className="footer__logo-sub">Affiliated to MG University · Est. 1999</div>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <div className="footer__bottom-inner">
-            <span>© {new Date().getFullYear()} JPM Arts &amp; Science College. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} <span className="font-grople">JPM Arts &amp; Science College</span>. All rights reserved.</span>
             <div className="footer__bottom-links">
               <a href="#">Privacy Policy</a>
               <span>|</span>

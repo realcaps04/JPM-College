@@ -46,8 +46,8 @@ export default function About() {
             </h2>
             <div className="divider divider-left" style={{ marginBottom: '24px' }} />
             <p className="about__para">
-              Founded in 1999 and affiliated to Mahatma Gandhi University, JPM Arts & Science
-              College has emerged as one of the leading institutions of higher education in Kerala.
+              Founded in 1999 and affiliated to Mahatma Gandhi University, <span className="font-grople">JPM Arts & Science
+              College</span> has emerged as one of the leading institutions of higher education in Kerala.
               Accredited by NAAC with Grade B++, we offer a rich academic environment that blends
               traditional values with modern educational practices.
             </p>

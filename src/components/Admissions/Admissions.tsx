@@ -11,7 +11,7 @@ export default function Admissions() {
         <motion.div className="section-header" initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5 }}>
           <div className="section-tag">How to Apply</div>
           <h2 className="section-title" style={{ color: '#fff' }}>Admissions Process</h2>
-          <p className="section-subtitle">Follow these five steps to begin your journey at JPM Arts &amp; Science College.</p>
+          <p className="section-subtitle">Follow these five steps to begin your journey at <span className="font-grople">JPM Arts &amp; Science College</span>.</p>
         </motion.div>
 
         <div className="admissions__steps">

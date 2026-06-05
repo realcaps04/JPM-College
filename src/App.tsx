@@ -1,37 +1,17 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Portal from './pages/Portal/Portal';
 import './index.css';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import Stats from './components/Stats/Stats';
-import About from './components/About/About';
-import Programs from './components/Programs/Programs';
-import Admissions from './components/Admissions/Admissions';
-import Faculty from './components/Faculty/Faculty';
-import Events from './components/Events/Events';
-import Departments from './components/Departments/Departments';
-import Gallery from './components/Gallery/Gallery';
-import News from './components/News/News';
-import Contact from './components/Contact/Contact';
-import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Stats />
-        <About />
-        <Programs />
-        <Admissions />
-        <Faculty />
-        <Events />
-        <Departments />
-        <Gallery />
-        <News />
-        <Contact />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/portal/:role" element={<Portal />} />
+        <Route path="/portal" element={<Portal />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

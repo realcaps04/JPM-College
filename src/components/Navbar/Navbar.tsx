@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone, Mail } from 'lucide-react';
-import RoleModal from '../RoleModal/RoleModal';
+import { Menu, X, Phone, Mail, AlertCircle } from 'lucide-react';
 import './Navbar.css';
 
 const navLinks = [
@@ -20,7 +19,8 @@ export default function Navbar() {
   const [visible, setVisible]     = useState(true);   // is navbar shown
   const [elevated, setElevated]   = useState(false);  // has shadow (scrolled)
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [roleModalOpen, setRoleModalOpen] = useState(false);
+  const [showNotification, setShowNotification] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
 
   const lastScrollY = useRef(0);
 
@@ -115,10 +115,44 @@ export default function Navbar() {
 
             {/* Actions */}
             <div className="navbar__actions">
-              <button className="navbar__cta" onClick={() => scrollTo('#admissions')}>
-                Apply Now
-              </button>
-              <button className="navbar__join" onClick={() => setRoleModalOpen(true)}>
+              <div 
+                className="navbar__notification-wrapper"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
+                <button 
+                  className="navbar__notification-btn" 
+                  onClick={() => {
+                    scrollTo('#admissions');
+                    setShowNotification(false);
+                  }}
+                  aria-label="Admissions updates"
+                >
+                  <AlertCircle size={22} strokeWidth={2.5} />
+                  {(showNotification || isHovered) && <span className="navbar__notification-dot" />}
+                </button>
+                <AnimatePresence>
+                  {(showNotification || isHovered) && (
+                    <motion.div 
+                      className="navbar__notification-popup"
+                      initial={{ opacity: 0, y: 12, scale: 0.9 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ type: 'spring', bounce: 0.5 }}
+                    >
+                      <span>Admission updates</span>
+                      <button 
+                        className="navbar__notification-close" 
+                        onClick={(e) => { e.stopPropagation(); setShowNotification(false); setIsHovered(false); }}
+                      >
+                        <X size={12} />
+                      </button>
+                      <div className="navbar__notification-arrow" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              <button className="navbar__join" onClick={() => window.open('/portal', '_blank')}>
                 Join Us
               </button>
             </div>
@@ -157,19 +191,23 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="mobile-menu__actions">
-              <button className="mobile-menu__cta" onClick={() => scrollTo('#admissions')}>
-                Apply Now
+              <button 
+                className="mobile-menu__notification-btn" 
+                onClick={() => {
+                  scrollTo('#admissions');
+                  setMobileOpen(false);
+                }}
+              >
+                <AlertCircle size={20} />
+                Admission updates
               </button>
-              <button className="mobile-menu__join" onClick={() => { setMobileOpen(false); setRoleModalOpen(true); }}>
+              <button className="mobile-menu__join" onClick={() => { setMobileOpen(false); window.open('/portal', '_blank'); }}>
                 Join Us
               </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Role Selection Modal */}
-      <RoleModal isOpen={roleModalOpen} onClose={() => setRoleModalOpen(false)} />
     </>
   );
 }
