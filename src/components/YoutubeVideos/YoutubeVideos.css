@@ -1,0 +1,154 @@
+/* ─── YouTube Videos Section ─────────────────────────── */
+.yt-section {
+  position: relative;
+}
+
+.yt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ─── Card ───────────────────────────────────────────── */
+.yt-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.yt-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-6px);
+  border-color: var(--gray-200);
+}
+
+/* ─── Thumbnail ──────────────────────────────────────── */
+.yt-thumbnail-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  background: var(--gray-800);
+  overflow: hidden;
+}
+
+.yt-thumb-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.yt-card:hover .yt-thumb-img {
+  transform: scale(1.05);
+}
+
+.yt-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── Overlay ────────────────────────────────────────── */
+.yt-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 75, 128, 0.5) 0%,
+    rgba(0, 30, 60, 0.65) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.yt-overlay:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 75, 128, 0.35) 0%,
+    rgba(0, 30, 60, 0.5) 100%
+  );
+}
+
+/* ─── Play Button ────────────────────────────────────── */
+.yt-play-btn {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+  padding-left: 4px; /* optical center for play icon */
+}
+
+.yt-play-btn:hover {
+  background: var(--gold);
+  color: var(--white);
+  transform: scale(1.12);
+  box-shadow: 0 12px 40px rgba(200, 136, 13, 0.45);
+}
+
+/* ─── Card Body ──────────────────────────────────────── */
+.yt-card-body {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.yt-badge {
+  align-self: flex-start;
+}
+
+.yt-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.yt-card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.yt-watch-btn {
+  align-self: flex-start;
+  margin-top: 6px;
+  font-size: 13px;
+  padding: 10px 20px;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .yt-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .yt-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,189 @@
+/* ─── RankHolders Full Page ──────────────────────────── */
+
+/* ─── Tabs (shared with RankHolders component) ───────── */
+.rh-tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rh-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 20px;
+  border-radius: 40px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--gray-50);
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.rh-tab:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-faint);
+}
+
+.rh-tab--active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+  box-shadow: 0 4px 14px rgba(0, 75, 128, 0.25);
+}
+
+.rh-tab--active:hover {
+  background: var(--blue-dark);
+  border-color: var(--blue-dark);
+  color: var(--white);
+}
+
+.rh-tab-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.rh-tab:not(.rh-tab--active) .rh-tab-count {
+  background: var(--gray-200);
+  color: var(--text-muted);
+}
+
+/* ─── Hero ───────────────────────────────────────────── */
+.rhp-main {
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+.rhp-hero {
+  position: relative;
+  background: var(--blue-dark);
+  padding: 64px 0 52px;
+  overflow: hidden;
+}
+
+.rhp-hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(200, 136, 13, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 10% 100%, rgba(0, 95, 158, 0.5) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.rhp-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.rhp-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 20px;
+}
+
+.rhp-back-btn:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.rhp-hero-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin: 10px 0 16px;
+  letter-spacing: -1px;
+}
+
+.rhp-hero-sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+
+/* ─── Hero Stats ─────────────────────────────────────── */
+.rhp-hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.rhp-hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.rhp-stat-num {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--gold-light);
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.rhp-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+/* ─── Content section ────────────────────────────────── */
+.rhp-content {
+  padding-top: 48px;
+}
+
+.rhp-filter-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.rhp-filter-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  white-space: nowrap;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .rhp-hero { padding: 48px 0 40px; }
+  .rhp-hero-stats { gap: 20px; }
+  .rhp-stat-num { font-size: 24px; }
+}

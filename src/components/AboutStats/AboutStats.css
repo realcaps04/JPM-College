@@ -1,0 +1,128 @@
+/* ─── About Stats Section ────────────────────────────── */
+.astat-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Grid — 4 cards ─────────────────────────────────── */
+.astat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ─── Card ───────────────────────────────────────────── */
+.astat-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+}
+
+.astat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ─── Top accent bar ─────────────────────────────────── */
+.astat-bar {
+  height: 4px;
+  width: 100%;
+}
+
+.stat-blue  .astat-bar { background: linear-gradient(90deg, #5B9DC9, #004b80); }
+.stat-gold  .astat-bar { background: linear-gradient(90deg, #F5D060, #C8880D); }
+.stat-teal  .astat-bar { background: linear-gradient(90deg, #4DB6AC, #00796B); }
+.stat-green .astat-bar { background: linear-gradient(90deg, #81C784, #2E7D32); }
+
+/* ─── Card inner ─────────────────────────────────────── */
+.astat-card-inner {
+  padding: 32px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─── Icon ring ──────────────────────────────────────── */
+.astat-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  transition: var(--transition);
+}
+
+.stat-blue  .astat-icon-wrap { background: rgba(0, 75, 128, 0.08);  color: var(--blue); }
+.stat-gold  .astat-icon-wrap { background: rgba(200, 136, 13, 0.1); color: var(--gold); }
+.stat-teal  .astat-icon-wrap { background: rgba(0, 121, 107, 0.09); color: #00796B; }
+.stat-green .astat-icon-wrap { background: rgba(46, 125, 50, 0.09);  color: #2E7D32; }
+
+.astat-card:hover .astat-icon-wrap {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+.astat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Value ──────────────────────────────────────────── */
+.astat-value {
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 800;
+  line-height: 1;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -1.5px;
+}
+
+.stat-blue  .astat-value { color: var(--blue); }
+.stat-gold  .astat-value { color: var(--gold); }
+.stat-teal  .astat-value { color: #00796B; }
+.stat-green .astat-value { color: #2E7D32; }
+
+/* ─── Label ──────────────────────────────────────────── */
+.astat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+  margin: 0;
+}
+
+/* ─── Progress bar (for % values) ───────────────────── */
+.astat-progress-wrap {
+  width: 100%;
+  height: 5px;
+  background: var(--gray-100);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.astat-progress-bar {
+  height: 100%;
+  border-radius: 10px;
+}
+
+.stat-blue  .astat-progress-bar { background: linear-gradient(90deg, #5B9DC9, #004b80); }
+.stat-green .astat-progress-bar { background: linear-gradient(90deg, #81C784, #2E7D32); }
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .astat-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .astat-grid { grid-template-columns: 1fr; }
+  .astat-card-inner { padding: 24px 20px 22px; }
+}
