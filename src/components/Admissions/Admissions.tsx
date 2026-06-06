@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import { admissionSteps } from '../../data/siteData';
 import './Admissions.css';
 
 export default function Admissions() {
   const { ref, inView } = useInView({ threshold: 0.1, triggerOnce: true });
+  const navigate = useNavigate();
   return (
     <section className="admissions section section-blue" id="admissions" ref={ref}>
       <div className="container">
@@ -31,7 +33,7 @@ export default function Admissions() {
             <p>Limited seats. Apply now to secure your place.</p>
           </div>
           <div className="admissions__cta-btns">
-            <button className="btn btn-gold">Apply Online Now</button>
+            <button className="btn btn-gold" onClick={() => navigate('/admissions')}>Apply Online Now</button>
             <button className="btn btn-outline-white">Download Prospectus</button>
           </div>
         </motion.div>

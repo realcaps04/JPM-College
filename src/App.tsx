@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Portal from './pages/Portal/Portal';
 import AboutPage from './pages/AboutPage';
 import RankHoldersPage from './pages/RankHoldersPage';
+import AdmissionsPage from './pages/AdmissionsPage';
 import './index.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/rank-holders" element={<RankHoldersPage />} />
+        <Route path="/admissions" element={<AdmissionsPage />} />
         <Route path="/portal/:role" element={<Portal />} />
         <Route path="/portal" element={<Portal />} />
       </Routes>
